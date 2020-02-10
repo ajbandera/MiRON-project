@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/isis/MOOD2Be/IntralogisticExecutor/zmq_server.cpp
+zmq.hpp
+-
+iostream
+-
+sstream
+-
+
