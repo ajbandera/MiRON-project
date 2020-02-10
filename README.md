@@ -13,3 +13,7 @@ Next steps:
 - Update the skill on the KB component by the SkillInterface component
 - The Sequencer component should read the skill from the KB and manages its execution
 
+Testing:
+- ABR_test.xml - Behavior tree sequencing the six available skills
+- ABRTesting.skills.json - File with the collection of six available skills
+- SystemTiagoNavigation.skills.json - File with the whole collection of skills from the SystemTiagoNavigation environment on SmartMDSD
