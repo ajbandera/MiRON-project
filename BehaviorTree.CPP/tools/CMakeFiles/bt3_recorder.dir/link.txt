@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/bt3_recorder.dir/bt_recorder.cpp.o  -o ../bin/bt3_recorder -rdynamic ../lib/libbehaviortree_cpp_v3.so -lpthread -ldl -lzmq -Wl,-rpath,/home/isis/MOOD2Be/BehaviorTree.CPP/lib: 

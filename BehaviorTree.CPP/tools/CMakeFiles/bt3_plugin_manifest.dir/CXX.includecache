@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/isis/MOOD2Be/BehaviorTree.CPP/tools/bt_plugin_manifest.cpp
+stdio.h
+-
+iostream
+-
+fstream
+-
+unordered_map
+-
+behaviortree_cpp_v3/bt_factory.h
+/home/isis/MOOD2Be/BehaviorTree.CPP/tools/behaviortree_cpp_v3/bt_factory.h
+
