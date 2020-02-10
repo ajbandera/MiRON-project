@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/isis/MOOD2Be/BehaviorTree.CPP/sample_nodes/movebase_node.cpp
+movebase_node.h
+/home/isis/MOOD2Be/BehaviorTree.CPP/sample_nodes/movebase_node.h
+behaviortree_cpp_v3/bt_factory.h
+/home/isis/MOOD2Be/BehaviorTree.CPP/sample_nodes/behaviortree_cpp_v3/bt_factory.h
+
+/home/isis/MOOD2Be/BehaviorTree.CPP/sample_nodes/movebase_node.h
+behaviortree_cpp_v3/behavior_tree.h
+/home/isis/MOOD2Be/BehaviorTree.CPP/sample_nodes/behaviortree_cpp_v3/behavior_tree.h
+
