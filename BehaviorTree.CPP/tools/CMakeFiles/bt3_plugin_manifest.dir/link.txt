@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/bt3_plugin_manifest.dir/bt_plugin_manifest.cpp.o  -o ../bin/bt3_plugin_manifest -rdynamic ../lib/libbehaviortree_cpp_v3.so -lpthread -ldl -lzmq -Wl,-rpath,/home/isis/MOOD2Be/BehaviorTree.CPP/lib: 
