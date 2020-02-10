@@ -1,0 +1,3 @@
+[submodule "SmartMDSD-Toolchain"]
+	path = SmartMDSD-Toolchain
+	url = git@github.com:Servicerobotics-Ulm/SmartMDSD-Toolchain.git
