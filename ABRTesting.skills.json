@@ -1,0 +1,110 @@
+
+[
+{"skill" :
+	{ 
+		"name" : "approachLocation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.approachLocation",
+		"in-attribute" : {
+			"locationId" : "Int"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterPosition",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterPosition",
+		"in-attribute" : {
+			"x" : "Double",
+			"y" : "Double",
+			"approachRadius" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterBackwardsLocation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterBackwardsLocation",
+		"in-attribute" : {
+			"locationID" : "Int"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterBackwardsRelative",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterBackwardsRelative",
+		"in-attribute" : {
+			"dist" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterOrientateRobotAbs",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterOrientateRobotAbs",
+		"in-attribute" : {
+			"angleDeg" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterOrientateRobotRel",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterOrientateRobotRel",
+		"in-attribute" : {
+			"angleDeg" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+}
+]
+[
+]
+
