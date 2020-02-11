@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/zmq_dummy_server.dir/zmq_server.cpp.o  -o zmq_dummy_server -rdynamic -lpthread -lzmq 

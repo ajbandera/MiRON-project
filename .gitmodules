@@ -1,0 +1,6 @@
+[submodule "SmartMDSD-Toolchain"]
+	path = SmartMDSD-Toolchain
+	url = git@github.com:Servicerobotics-Ulm/SmartMDSD-Toolchain.git
+[submodule "MOOD2Be"]
+	path = MOOD2Be
+	url = https://github.com/renan028/MOOD2Be
