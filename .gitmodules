@@ -3,4 +3,4 @@
 	url = git@github.com:Servicerobotics-Ulm/SmartMDSD-Toolchain.git
 [submodule "MOOD2Be"]
 	path = MOOD2Be
-	url = git@github.com:facontidavide/MOOD2Be.git
+	url = https://github.com/renan028/MOOD2Be
