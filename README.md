@@ -17,3 +17,9 @@ Testing:
 - ABR_test.xml - Behavior tree sequencing the six available skills
 - ABRTesting.skills.json - File with the collection of six available skills
 - SystemTiagoNavigation.skills.json - File with the whole collection of skills from the SystemTiagoNavigation environment on SmartMDSD
+
+# Compilation instructions (Ubuntu Linux) 
+`mkdir build`  
+`cd build`  
+`cmake ..`  
+`make`
