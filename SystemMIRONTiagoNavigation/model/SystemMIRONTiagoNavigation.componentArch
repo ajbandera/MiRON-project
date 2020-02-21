@@ -1,0 +1,90 @@
+SystemComponentArchitecture SystemMIRONTiagoNavigation
+{
+ComponentInstance ComponentWebots instantiates ComponentWebots
+	{
+	}
+	ComponentInstance ComponentKB instantiates ComponentKB
+	{
+		ProvidedService kbQuery
+	}
+	ComponentInstance ComponentSkillInterface instantiates ComponentSkillInterface
+	{
+		RequiredService kBQueryClient
+	}
+	ComponentInstance ComponentWebotsLidar instantiates ComponentWebotsLidar
+	{
+		RequiredService BaseStateServiceIn
+		ProvidedService LaserServiceOut
+	}
+	ComponentInstance SmartCdlServer instantiates SmartCdlServer
+	{
+		RequiredService LaserClient
+		RequiredService PlannerClient
+		RequiredService BaseStateClient
+		RequiredService NavVelSendClient
+	ParameterStructInstance SystemMIRONTiagoNavigation.SmartCdlServer
+	}
+	ComponentInstance ComponentWebotsTIAGo instantiates ComponentWebotsTIAGo
+	{
+		ProvidedService BaseStateServiceOut
+		ProvidedService BatteryEventServiceOut
+		ProvidedService LocalizationUpdateServiceIn
+		ProvidedService NavigationVelocityServiceIn
+	}
+	ComponentInstance SmartAmcl instantiates SmartAmcl
+	{
+		RequiredService LaserServiceIn
+		RequiredService LocalizationUpdateServiceOut
+		ProvidedService LocalizationEventServiceOut
+	}
+	ComponentInstance SmartMapperGridMap instantiates SmartMapperGridMap
+	{
+		RequiredService LaserServiceIn
+		ProvidedService CurrMapOut
+	ParameterStructInstance SystemMIRONTiagoNavigation.SmartMapperGridMap
+	}
+	ComponentInstance SmartPlannerBreadthFirstSearch instantiates SmartPlannerBreadthFirstSearch
+	{
+		RequiredService CurMapClient
+		RequiredService BaseStateClient
+		ProvidedService PlannerGoalServer
+	}
+	ComponentInstance ComponentTCLSequencer instantiates ComponentTCLSequencer
+	{
+	}
+	Connection ComponentSkillInterface.kBQueryClient -> ComponentKB.kbQuery
+	Connection SmartCdlServer.LaserClient -> ComponentWebotsLidar.LaserServiceOut
+	Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsTIAGo.BaseStateServiceOut
+	Connection SmartCdlServer.NavVelSendClient -> ComponentWebotsTIAGo.NavigationVelocityServiceIn
+	Connection SmartAmcl.LocalizationUpdateServiceOut -> ComponentWebotsTIAGo.LocalizationUpdateServiceIn
+	Connection SmartAmcl.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+	Connection SmartMapperGridMap.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
+	Connection SmartPlannerBreadthFirstSearch.CurMapClient -> SmartMapperGridMap.CurrMapOut
+	Connection SmartPlannerBreadthFirstSearch.BaseStateClient -> ComponentWebotsTIAGo.BaseStateServiceOut
+	Connection SmartCdlServer.PlannerClient -> SmartPlannerBreadthFirstSearch.PlannerGoalServer
+	
+	
+	BehaviorTaskRef NavTasks
+
+	CoordinationModuleMapping {
+		moduleInstance NavTasks.kbModInst realizedby kbModule
+		{
+			interfaceInstance kb realizedby ComponentKB
+		}
+	}
+
+	CoordinationModuleMapping {
+		moduleInstance NavTasks.nav1 realizedby MovementMod2
+		{
+			interfaceInstance cdl realizedby SmartCdlServer
+			interfaceInstance mapper realizedby SmartMapperGridMap
+			interfaceInstance planner realizedby SmartPlannerBreadthFirstSearch
+		}
+	}
+
+	CoordinationModuleMapping {
+		moduleInstance NavTasks.localizationModInst realizedby locModRealization {
+			interfaceInstance amcl1 realizedby SmartAmcl
+		}
+	}
+}

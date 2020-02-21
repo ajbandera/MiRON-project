@@ -1,0 +1,22 @@
+DeploymentModel SystemMIRONTiagoNavigation using ComponentArchitecture SystemMIRONTiagoNavigation
+{
+TargetPlatformReference PC1 using SystemMIRONTiagoNavigation.PC1
+	{
+		UploadDirectory "/tmp"
+	NetworkInterface eth1
+	}
+	NamingService
+	{
+	deploy-to PC1 
+	}
+	ComponentArtefact ComponentKB deploy-to PC1
+	ComponentArtefact ComponentSkillInterface deploy-to PC1
+	ComponentArtefact ComponentWebots deploy-to PC1
+	ComponentArtefact ComponentWebotsLidar deploy-to PC1
+	ComponentArtefact ComponentWebotsTIAGo deploy-to PC1
+	ComponentArtefact SmartAmcl deploy-to PC1
+	ComponentArtefact SmartCdlServer deploy-to PC1
+	ComponentArtefact SmartMapperGridMap deploy-to PC1
+	ComponentArtefact ComponentTCLSequencer deploy-to PC1
+	ComponentArtefact SmartPlannerBreadthFirstSearch deploy-to PC1
+}
