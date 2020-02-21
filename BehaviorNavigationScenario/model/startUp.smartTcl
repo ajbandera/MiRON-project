@@ -1,0 +1,150 @@
+(format t "INIT DONE ~%")
+
+(defun format-locations (s obj colonmod at-sign) (declare (ignore colonmod)) (declare (ignore at-sign)) (format s "~s" (get-value obj 'name)))
+
+;;;;;;;;;;;;;;;;;;;;;
+
+;; MENU
+(defvar nmbr nil)
+;
+; capture the skill
+(defvar name_skill NIL)
+(defvar in_1_skill NIL)
+(defvar in_2_skill NIL)
+(defvar in_3_skill NIL)
+(defvar out_1_skill NIL)
+(defvar out_2_skill NIL)
+(defvar out_3_skill NIL)
+;(defvar id_skill -1)
+;
+
+(defun menu()
+  (execute '(nav1.tcb-init-navigation))
+  (execute '(nav1.tcb-load-navigation-map "navigation-map"))
+
+  (execute '(localizationModInst.tcb-load-localization-map "localization-map.yaml"))
+  (execute '(localizationModInst.tcb-trigger-global-localization))
+  (execute '(localizationModInst.tcb-set-robot-pose 0 0 0))
+(loop
+
+  (let ((known-locations (tcl-kb-query-all :key '(is-a) :value '((is-a location)))))
+
+  (format t "~%MENU~%====~%~%")
+  (format t " ---------------------------------------------------- ~%")
+  (format t " 3 - Start Joystick Navigation ~%")
+  (format t " 4 - Stop Joystick Navigation ~%")
+  (format t " ---------------------------------------------------- ~%")
+  (format t " 5 - Approach location ~%")
+  (format t " ---------------------------------------------------- ~%")
+  (format t " 6 - Move robot plain x y angle ~%") ;case 6 - ABR
+  (format t " ---------------------------------------------------- ~%")
+  ;(format t " 95 - Add new locations ~%") ;ABR
+  (format t " 95 - Show skills ~%")
+  (format t " 96 - Show locations ~%")
+  ;(format t " 97 - Save locations to file ~%")
+  ;(format t " 98 - Load locations from file ~%")
+  (format t "99 - quit menu ~%")
+  (format t " 0 - exit ~%")
+  
+
+  ; ABR - Reading a skill
+  (let ((obj_skill     (tcl-kb-query :key '(is-a) :value '((is-a skill)) ) ))
+  		(setf name_skill (get-value obj_skill 'name)) ; read the name of the skill to execute
+  		(setf in_1_skill (get-value obj_skill 'in_1)) ; read the parameter IN1 of the skill to execute
+  		(setf in_2_skill (get-value obj_skill 'in_2)) ; read the parameter IN2 of the skill to execute
+  		(setf in_3_skill (get-value obj_skill 'in_3)) ; read the parameter IN3 of the skill to execute
+  		(setf out_1_skill (get-value obj_skill 'out_1)) ; read the parameter OUT1 of the skill to execute
+  		(setf out_2_skill (get-value obj_skill 'out_2)) ; read the parameter OUT2 of the skill to execute  		
+  		(setf out_3_skill (get-value obj_skill 'out_3)) ; read the parameter OUT3 of the skill to execute
+  		(format t "---> name : ~s ~%" name_skill)
+  		(cond
+  		((string-equal name_skill "NIL") ;  
+  			)
+  		((string-equal name_skill "ACTIVATELOCALIZATION")		
+  			(execute '(localizationModInst.tcb-activate-localization))
+  			(tcl-kb-update :key '(is-a) :value '((is-a skill_result)(name ACTIVATELOCALIZATION)) ) ;add id_skill
+  			)
+  		((string-equal name_skill "APPROACHLOCATION")
+  			(format t "------> DENTRO : ~s ~d ~%" name_skill in_1_skill)
+  			(setf locations-var "HOME")
+  			(cond
+  			((equal in_1_skill 1.0)
+  				(setf locations-var "HOME"))
+  			((equal in_1_skill 2.0)
+  				(setf locations-var "SOFA"))
+  			((equal in_1_skill 3.0)
+  				(setf locations-var "TABLE"))
+  			((equal in_1_skill 4.0)
+  				(setf locations-var "BENCH"))
+  			)
+            (setf locations-var (intern locations-var))
+  			(execute `(nav1.tcb-approach-location ,locations-var))
+  			(tcl-kb-update :key '(is-a) :value '((is-a skill_result)(name APPROACHLOCATION)) )
+  			)
+  		((string-equal name_skill "DEACTIVATELOCALIZATION")		
+  			(execute '(localizationModInst.tcb-deactivate-localization))
+ 			(tcl-kb-update :key '(is-a) :value '((is-a skill_result)(name DEACTIVATELOCALIZATION)) )
+  			)
+  		)
+  
+      ;(format t "~%--------------------------------~%")
+      ;(format t "SKILL ------------------~%")
+      ;(format t "name                       : ~s ~%" (get-value obj_skill 'name))
+      ;(format t "  in_1	                    : ~s ~%" (get-value obj_skill 'in_1))
+      ;(format t "  in_2            			: ~s ~%" (get-value obj_skill 'in_2))
+      ;(format t "  in_3					    : ~s ~%" (get-value obj_skill 'in_3))
+      ;(format t "  out_1				    : ~s ~%" (get-value obj_skill 'out_1))
+      ;(format t "  out_2      				: ~s ~%" (get-value obj_skill 'out_2))
+      ;(format t "  out_3      				: ~s ~%" (get-value obj_skill 'out_3)) 
+      )
+  
+  
+  
+  
+  
+  
+;  (setf nmbr (parse-integer (read-line nil)))
+;  (format t "your choice: ~d ~%" nmbr)
+  
+;  (cond
+;    ((equal nmbr 3)
+;      (execute '(nav1.tcb-joystick-navigation)))
+;    ((equal nmbr 4)
+;      (execute '(nav1.tcb-stop-joystick-navigation)))
+;    ((equal nmbr 5)
+;     (format t "Approach location - known locations: ~%")
+;     (format t "~%~{~/format-locations/~^, ~}~%~%" known-locations)
+;     (format t "Enter location name: ~%")
+;     (setf locations-var (string-upcase (read-line nil)))
+;     (setf locations-var (intern locations-var))
+;     (format t "your choice: ~a ~%" locations-var)
+;       (execute '(localizationModInst.tcb-activate-localization))
+;       (execute `(nav1.tcb-approach-location ,locations-var)) ;ABR - recuperar
+;       (execute '(localizationModInst.tcb-deactivate-localization)))
+;    ((equal nmbr 6) ; case 6 - ABR
+;     (format t " x position ~%")
+;     (setf xpos (parse-integer (read-line nil)))
+;     (format t " y position ~%")
+;     (setf ypos (parse-integer (read-line nil)))
+;       (execute '(localizationModInst.tcb-activate-localization))
+;       (execute `(nav1.tcb-move-robot 'plain ,xpos ,ypos 100))  ;ABR - tocando con move_robot
+;       (execute '(localizationModInst.tcb-deactivate-localization))) ;end-case 6 - ABR    
+    ;((equal nmbr 95)  ;ABR - undefined function
+     ;(add-locations)) ;ABR
+;     ((equal nmbr 95)
+;     (show-skills))
+;    ((equal nmbr 96)
+;     (show-locations))
+    ;((equal nmbr 97)
+    ; (save-positions-from-kb-to-file))
+    ;((equal nmbr 98)
+    ; (load-positions-from-file-to-kb))
+;    ((equal nmbr 99)
+;      (format t "type (menu) to come back to menu ~%")
+;      (return))
+;    ((equal nmbr 0)
+;      (format t "bye bye ~%")
+;      (quit)))
+      )))
+
+(menu)

@@ -1,0 +1,9 @@
+TaskRealizationModel NavTasks {
+	AbstractCoordinationModuleInstance nav1 coordModuleDef CommNavigationObjects.NavigationModule
+	AbstractCoordinationModuleInstance kbModInst coordModuleDef CommBasicObjects.KBModule
+	AbstractCoordinationModuleInstance localizationModInst coordModuleDef CommLocalizationObjects.LocalizationModule
+	AbstractCoordinationModuleInstance base coordModuleDef CommNavigationObjects.MobileBaseModule
+	
+	//this task realization is a dummy (see smartTCL file)	
+	TaskRealization CommNavigationObjects.testTask { }
+}

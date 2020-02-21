@@ -1,0 +1,269 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; SCENARIO MEMORY
+ 
+; ABR - Adding a space on the KB for the skill - Initial name: NIL
+ (tcl-kb-update 
+  :key '(is-a) 
+  :value '( 
+            (is-a skill)
+            (name NIL)
+            (id -1)
+            (in_1 NIL)
+            (in_2 NIL)
+            (in_3 NIL)
+            (out_1 NIL)
+            (out_2 NIL)
+            (out_3 NIL)))
+
+; ABR - Adding a space on the KB for the result of executing a skill - Initial name: NIL
+ 
+ (tcl-kb-update 
+  :key '(is-a) 
+  :value '( 
+            (is-a skill_result)
+            (name NIL)
+            (id -1)
+            (result NIL)))
+ 
+; positions
+;(tcl-kb-update :key '(is-a) :value '((is-a skill)(name NIL)) )
+(tcl-kb-update 
+  :key '(is-a name) 
+  :value '( 
+            (is-a location)
+            (name home)
+            (speech "home position")
+            (approach-type (region))
+            (approach-region-pose (0 0 0))
+            (approach-region-dist 75)
+            (approach-exact-pose (0 0 0))
+            (approach-exact-dist 50)
+            (approach-exact-safetycl 0)
+            (orientation-region (position 1000 0))
+            (orientation-exact (position 1000 0))
+            (backward-dist 500)))
+
+
+(tcl-kb-update 
+  :key '(is-a name) 
+  :value '( 
+            (is-a location)
+            (name sofa)
+            (speech "sofa")
+            (approach-type (region))
+            (approach-region-pose (0 8000 0))
+            (approach-region-dist 150)
+            (approach-exact-pose (0 8000 0))
+            (approach-exact-dist 100)
+            (approach-exact-safetycl 0)
+            (orientation-region (position 1000 9000))
+            (orientation-exact (position 1000 9000))
+            (backward-dist 500)))
+            
+(tcl-kb-update 
+  :key '(is-a name) 
+  :value '( 
+            (is-a location)
+            (name table)
+            (speech "table")
+            (approach-type (region))
+            ;(approach-region-pose (2500 -2000 0))
+            (approach-region-pose (1500 -1000 0))
+            (approach-region-dist 150)
+            ;(approach-exact-pose (2500 -2000 0))
+            (approach-exact-pose (1500 -1000 0))
+            (approach-exact-dist 100)
+            (approach-exact-safetycl 0)
+            (orientation-region (position 2500 -3000))
+            (orientation-exact (position 2500 -3000))
+            (backward-dist 500)))
+            
+(tcl-kb-update 
+  :key '(is-a name) 
+  :value '( 
+            (is-a location)
+            (name bench)
+            (speech "bench")
+            (approach-type (region))
+            (approach-region-pose (-3000 2200 0))
+            (approach-region-dist 150)
+            (approach-exact-pose (-3000 2200 0))
+            (approach-exact-dist 100)
+            (approach-exact-safetycl 0)
+            (orientation-region (position -4000 2200))
+            (orientation-exact (position -4000 2200))
+            (backward-dist 500)))
+            
+(tcl-kb-update 
+  :key '(is-a name) 
+  :value '( 
+            (is-a location)
+            (name pose1)
+            (speech "pose-one")
+            (approach-type (region))
+            (approach-region-pose (-1000 2000 0))
+            (approach-region-dist 150)
+            (approach-exact-pose (600 1700 0))
+            (approach-exact-dist 100)
+            (approach-exact-safetycl 0)
+            (orientation-region (position 500 2000))
+            (orientation-exact (position 600 1900))
+            (backward-dist 500)))
+
+(tcl-kb-update 
+  :key '(is-a name) 
+  :value '( 
+            (is-a location)
+            (name pose2)
+            (speech "TWO")
+            (approach-region-pose (800 0 0))
+            (approach-region-dist 150)
+            (approach-exact-pose (1000 0 0))
+            (approach-exact-dist 50)
+            (approach-exact-safetycl 0)
+            (orientation-region (position 0 0))
+            (orientation-exact (position 0 0))
+            (backward-dist 500)))
+
+
+(tcl-kb-update 
+  :key '(is-a name) 
+  :value `(
+            (is-a robot)
+            (name 1)
+            (velocity-travelling ((0 500)(-60 60)))
+            (velocity-path-navigation ((0 500)(-60 60)))
+            (velocity-following  ((0 1200)(-200 200)))
+            (current-room room-1)
+            (current-symbolic-position nil)
+            (goalid 0)
+            (default-nav-map "navigation-map")
+            (default-map "localization-map")))
+
+(tcl-kb-update 
+  :key '(is-a name) 
+  :value '(
+            (is-a room)
+            (name room-1)
+            (speech "zafh lab")
+            (size (50000 50000))
+            (offset (-25000 -25000))))
+
+
+
+(defun show-locations ()
+  (let ((obj-list     (tcl-kb-query-all :key '(is-a) :value '((is-a location)))))
+    (dolist (obj obj-list)
+      (format t "~%--------------------------------~%")
+      (format t "L O C A T I O N ------------------~%")
+      (format t "name                       : ~s ~%" (get-value obj 'name))
+      (format t "  type                     : ~s ~%" (get-value obj 'type))
+      (format t "  approach-type            : ~s ~%" (get-value obj 'approach-type))
+      (format t "  approach-region-pose     : ~s ~%" (get-value obj 'approach-region-pose))
+      (format t "  approach-region-dist     : ~s ~%" (get-value obj 'approach-region-dist))
+      (format t "  approach-exact-pose      : ~s ~%" (get-value obj 'approach-exact-pose))
+      (format t "  approach-exact-dist      : ~s ~%" (get-value obj 'approach-exact-dist))
+      (format t "  approach-exact-safetycl  : ~s ~%" (get-value obj 'approach-exact-safetycl))
+      (format t "  orientation-region       : ~s ~%" (get-value obj 'orientation-region))
+      (format t "  orientation-exact        : ~s ~%" (get-value obj 'orientation-exact))
+      (format t "  orientation              : ~s ~%" (get-value obj 'orientation))
+      (format t "  station-distance         : ~s ~%" (get-value obj 'station-distance))
+      (format t "  belt-count               : ~s ~%" (get-value obj 'belt-count)))))
+      
+(defun show-skills ()
+  (let ((obj-list     (tcl-kb-query-all :key '(is-a) :value '((is-a skill)))))
+    (dolist (obj obj-list)
+      (format t "~%--------------------------------~%")
+      (format t "SKILL ------------------~%")
+      (format t "name                       : ~s ~%" (get-value obj 'name))
+      (format t "  in_1	                    : ~s ~%" (get-value obj 'in_1))
+      (format t "  in_2            			: ~s ~%" (get-value obj 'in_2))
+      (format t "  in_3					    : ~s ~%" (get-value obj 'in_3))
+      (format t "  out_1				    : ~s ~%" (get-value obj 'out_1))
+      (format t "  out_2      				: ~s ~%" (get-value obj 'out_2))
+      (format t "  out_3      				: ~s ~%" (get-value obj 'out_3)))))
+      
+
+(defun show-robots ()
+  (let ((robot-list (tcl-kb-query-all :key '(is-a) :value '((is-a robot)))))
+    (dolist (robot robot-list)
+    (format t "~%--------------------------------~%")
+    (format t "R O B O T ------------------------~%")
+    (format t "  name                   : ~s ~%" (get-value robot 'name))
+    (format t "  velocity-travelling    : ~s ~%" (get-value robot 'velocity-travelling))
+    (format t "  current-room           : ~s ~%" (get-value robot 'current-room))
+    (format t "  curr-s-loc             : ~s ~%" (get-value robot 'current-symbolic-position)))))
+
+
+;; SCENARIO MEMORY 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; testTask
+
+; (execute '(navigationTestTask))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; REACTIVE NAV
+; (execute '(nav1.tcb-reactive-navigation))
+; (execute '(nav1.tcb-stop-reactive-navigation))
+
+;; JOYSTICK
+; (execute '(nav1.tcb-joystick-navigation))
+; (execute '(nav1.tcb-stop-joystick-navigation))
+;;
+; (execute '(localizationModInst.tcb-activate-localization))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;
+;; (execute '(cameraInst.activateCameraPush))
+;; (execute '(cameraInst.activateCameraQuery))
+;; (execute '(cameraInst.deactivateCamera))
+
+;; (execute '(laserfromrgbdInst.activateLaserGenaration))
+;; (execute '(laserfromrgbdInst.dectivateLaserGenaration))
+
+
+
+(realize-tcb (navigationTestTask)
+  (action (	
+            (format t "===== navigationTestTask~%")))
+  (plan (
+
+          (nav1.tcb-init-navigation)
+          (nav1.tcb-load-navigation-map "navigation-map")
+
+          (localizationModInst.tcb-load-localization-map "localization-map.yaml")
+          (localizationModInst.tcb-trigger-global-localization)
+          (localizationModInst.tcb-set-robot-pose 0 0 0)
+
+          (localizationModInst.tcb-activate-localization)
+          (nav1.tcb-move-robot 'approach-region pose1)
+          (nav1.tcb-move-robot 'approach-exact pose1)
+          (nav1.tcb-move-robot 'backward pose1)
+          (nav1.tcb-move-robot 'backward-abs 100)
+          (nav1.tcb-move-robot 'plain 1000 0 100)
+          (nav1.tcb-move-robot 'orientate-region pose1)
+          (nav1.tcb-move-robot 'orientate-exact pose1)
+          (nav1.tcb-move-robot 'approach-region home)
+          (nav1.tcb-move-robot 'orientate-exact home)
+          (nav1.tcb-move-robot 'orientate-angle-absolute 45)
+          (nav1.tcb-move-robot 'orientate-angle-relative 135)
+          (nav1.tcb-move-robot 'orientate-angle-relative 180)
+          (nav1.tcb-approach-location pose1) ;region
+          (localizationModInst.tcb-deactivate-localization)
+
+          (base.getBasePose => ?x ?y ?yaw)
+          (base.getBaseCharging => ?charging)
+          (echoTask ?x ?y ?yaw ?charging))))
+
+
+
+(realize-tcb (echoTask ?x ?y ?yaw ?charging)
+  (action (	
+            (format t "===== echoTask: ~a ~a ~a ~a ~%" ?x ?y ?yaw ?charging))))
+
+;; testTask
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
