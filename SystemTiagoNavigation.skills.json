@@ -197,6 +197,33 @@
 			{ "result" : "SUCCESS", "result-value" : "OK" }
 		]
 	}
+},
+{"skill" :
+	{ 
+		"name" : "activateLocalization",
+		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.activateLocalization",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "ERROR", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "deactivateLocalization",
+		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.deactivateLocalization",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
 }
 ]
 [
@@ -232,33 +259,6 @@
 }
 ]
 [
-{"skill" :
-	{ 
-		"name" : "activateLocalization",
-		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.activateLocalization",
-		"in-attribute" : {
-		},
-		"out-attribute" : {
-		},
-		"results" : [ 
-			{ "result" : "SUCCESS", "result-value" : "OK" },
-			{ "result" : "ERROR", "result-value" : "" }
-		]
-	}
-},
-{"skill" :
-	{ 
-		"name" : "deactivateLocalization",
-		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.deactivateLocalization",
-		"in-attribute" : {
-		},
-		"out-attribute" : {
-		},
-		"results" : [ 
-			{ "result" : "SUCCESS", "result-value" : "OK" }
-		]
-	}
-},
 {"skill" :
 	{ 
 		"name" : "loadMap",
