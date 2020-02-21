@@ -1,0 +1,276 @@
+
+[
+]
+[
+{"skill" :
+	{ 
+		"name" : "approachLocation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.approachLocation",
+		"in-attribute" : {
+			"locationId" : "Int"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterPosition",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterPosition",
+		"in-attribute" : {
+			"x" : "Double",
+			"y" : "Double",
+			"approachRadius" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterBackwardsLocation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterBackwardsLocation",
+		"in-attribute" : {
+			"locationID" : "Int"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterBackwardsRelative",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterBackwardsRelative",
+		"in-attribute" : {
+			"dist" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterOrientateRobotAbs",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterOrientateRobotAbs",
+		"in-attribute" : {
+			"angleDeg" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "moveRoboterOrientateRobotRel",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.moveRoboterOrientateRobotRel",
+		"in-attribute" : {
+			"angleDeg" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "UNKNOWN LOCATION" },
+			{ "result" : "ERROR", "result-value" : "ROBOT BLOCKED" },
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "startJoystickNavigation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.startJoystickNavigation",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "stopJoystickNavigation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.stopJoystickNavigation",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "startReactiveNavigation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.startReactiveNavigation",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "stopReactiveNavigation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.stopReactiveNavigation",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "approachWall",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.approachWall",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "ERROR", "result-value" : "WALL NOT FOUND" },
+			{ "result" : "SUCCESS", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "loadNavigationMap",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.loadNavigationMap",
+		"in-attribute" : {
+			"map" : "String"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "ERROR", "result-value" : "MAP NOT FOUND" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "initNavigation",
+		"skill-definition-fqn" : "CommNavigationObjects.NavigationModule.initNavigation",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
+}
+]
+[
+{"skill" :
+	{ 
+		"name" : "activateLocalization",
+		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.activateLocalization",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "ERROR", "result-value" : "" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "deactivateLocalization",
+		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.deactivateLocalization",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "loadMap",
+		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.loadMap",
+		"in-attribute" : {
+			"mapname" : "String"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" },
+			{ "result" : "ERROR", "result-value" : "MAP NOT FOUND" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "setRobotPose",
+		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.setRobotPose",
+		"in-attribute" : {
+			"x" : "Double",
+			"y" : "Double",
+			"yaw" : "Double"
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
+},
+{"skill" :
+	{ 
+		"name" : "triggerGlobalLocalization",
+		"skill-definition-fqn" : "CommLocalizationObjects.LocalizationModule.triggerGlobalLocalization",
+		"in-attribute" : {
+		},
+		"out-attribute" : {
+		},
+		"results" : [ 
+			{ "result" : "SUCCESS", "result-value" : "OK" }
+		]
+	}
+}
+]
