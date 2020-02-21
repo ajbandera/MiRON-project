@@ -45,6 +45,7 @@ This system is built with Components from the Servicerobotics-Ulm repository (ht
 
 - `ABR_test.xml`: Example of Behavior tree
 - `SystemTiagoNavigation.skills.json`: File with the whole collection of skills from the `SystemTiagoNavigation` environment on SmartMDSD
+> **Note** : Remember that only three skills are currently managed!
 
 # Compilation instructions (Ubuntu Linux) 
 `mkdir build`  
