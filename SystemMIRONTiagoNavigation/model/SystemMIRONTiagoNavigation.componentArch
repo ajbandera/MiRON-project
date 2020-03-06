@@ -24,7 +24,7 @@ ComponentInstance ComponentWebots instantiates ComponentWebots
 		RequiredService NavVelSendClient
 	ParameterStructInstance SystemMIRONTiagoNavigation.SmartCdlServer
 	}
-	ComponentInstance ComponentWebotsTIAGo instantiates ComponentWebotsTIAGo
+	ComponentInstance ComponentWebotsRobot instantiates ComponentWebotsRobot
 	{
 		ProvidedService BaseStateServiceOut
 		ProvidedService BatteryEventServiceOut
@@ -54,13 +54,13 @@ ComponentInstance ComponentWebots instantiates ComponentWebots
 	}
 	Connection ComponentSkillInterface.kBQueryClient -> ComponentKB.kbQuery
 	Connection SmartCdlServer.LaserClient -> ComponentWebotsLidar.LaserServiceOut
-	Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsTIAGo.BaseStateServiceOut
-	Connection SmartCdlServer.NavVelSendClient -> ComponentWebotsTIAGo.NavigationVelocityServiceIn
-	Connection SmartAmcl.LocalizationUpdateServiceOut -> ComponentWebotsTIAGo.LocalizationUpdateServiceIn
+	Connection ComponentWebotsLidar.BaseStateServiceIn -> ComponentWebotsRobot.BaseStateServiceOut
+	Connection SmartCdlServer.NavVelSendClient -> ComponentWebotsRobot.NavigationVelocityServiceIn
+	Connection SmartAmcl.LocalizationUpdateServiceOut -> ComponentWebotsRobot.LocalizationUpdateServiceIn
 	Connection SmartAmcl.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
 	Connection SmartMapperGridMap.LaserServiceIn -> ComponentWebotsLidar.LaserServiceOut
 	Connection SmartPlannerBreadthFirstSearch.CurMapClient -> SmartMapperGridMap.CurrMapOut
-	Connection SmartPlannerBreadthFirstSearch.BaseStateClient -> ComponentWebotsTIAGo.BaseStateServiceOut
+	Connection SmartPlannerBreadthFirstSearch.BaseStateClient -> ComponentWebotsRobot.BaseStateServiceOut
 	Connection SmartCdlServer.PlannerClient -> SmartPlannerBreadthFirstSearch.PlannerGoalServer
 	
 	
