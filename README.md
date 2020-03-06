@@ -2,7 +2,7 @@
 
 ## Current snapshot
 
-Our current framework includes the Behavior Tree (BT) Executor and a system architecture builds on SmartMDSD. Environment and robot are simulated using Webots (https://github.com/cyberbotics/AROSYS). 
+Our current framework includes the Behavior Tree (BT) Executor and a system architecture builds on SmartMDSD. Environment and robot are simulated using Webots (https://github.com/cyberbotics/AROSYS).
 
 ![Our current framework](global_framework.png)
 
@@ -21,7 +21,7 @@ This system is built with Components from the Servicerobotics-Ulm repository (ht
 #### Modified Components and Behaviors
 
 - `ComponentSkillInterface`: The `SkillExecutionTask.cc` module has been modified for capturing the skill from the ZMQ server and annotate it on the `ComponentKB`. After updating a skill, the component will poll the `ComponentKB` for obtaining the associated response (i.e. `skill_result`).
-- `BehaviorNavigationScenario.smartTcl`: Minor changes for updating a NIL `skill` and `skill_result` on the `ComponentKB`. 
+- `BehaviorNavigationScenario.smartTcl`: Minor changes for updating a NIL `skill` and `skill_result` on the `ComponentKB`.
 - `startUp.smartTcl`: Relevant changes for polling the `ComponentKB` and capturing the new skills and manage them, writing on the `ComponentKB` the resulting `skill_results`. Currently, only three skills are considered: `ACTIVATELOCALIZATION`, `APPROACHLOCATION`, and `DEACTIVATELOCALIZATION`.
 
 #### Servicerobotics-Ulm Components
@@ -37,7 +37,7 @@ This system is built with Components from the Servicerobotics-Ulm repository (ht
 
 - `ComponentWebots`
 - `ComponentWebotsLidar`
-- `ComponentWebotsTIAGo`
+- `ComponentWebotsRobot`
 
 #### Testing
 
@@ -47,7 +47,7 @@ This system is built with Components from the Servicerobotics-Ulm repository (ht
 - `SystemTiagoNavigation.skills.json`: File with the whole collection of skills from the `SystemTiagoNavigation` environment on SmartMDSD
 > **Note** : Remember that only three skills are currently managed!
 
-# Compilation instructions (Ubuntu Linux) 
+# Compilation instructions (Ubuntu Linux)
 `mkdir build`  
 `cd build`  
 `cmake ..`  
